@@ -82,12 +82,7 @@
         app.innerHTML+="<div class='expanded row'><ul class='tabs' data-tabs id='mainTab'></ul></div>";
         app.innerHTML+="<div class='category tabs-content expanded row' id='categoryTab' data-tabs-content='mainTab' ></div>";
         
-      }
-      init(); 
-      
-      
-      
-      let infoItems = info.items
+        let infoItems = info.items
       let counter = 0;
       
       function isActive(counter){
@@ -98,8 +93,6 @@
         return status;
       }
 
-  
-      
       for(var item in infoItems){
           
           const itemTemplate = "<setion class='expanded row' id='"+item+"' >"+
@@ -135,6 +128,19 @@
           }
           counter++;
       };
+      
+        let phonesTab = document.getElementById('Phones').innerHTML;
+      let laptopsTab = document.getElementById('Laptops').innerHTML;
+      let accessoriesTab = document.getElementById('Accessories').innerHTML;
+      document.getElementById('Phones').innerHTML="<h1 class='tabName'>Phones</h1>"+phonesTab;
+      document.getElementById('Laptops').innerHTML="<h1 class='tabName'>Laptops</h1>"+laptopsTab;
+      document.getElementById('Accessories').innerHTML="<h1 class='tabName'>Accessories</h1>"+accessoriesTab;
+      }
+      init(); 
+      
+      
+      
+      
       
       
       

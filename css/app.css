@@ -17,12 +17,18 @@ body{
 .tabs{
     border: none;
 }
+.tabName{
+    color: #fff; text-align: center;
+}
 .tabs-content{
     background: url('../img/betica-headimg.jpg') no-repeat; background-attachment: fixed; background-size: cover;
     border: none;
 }
 .tabs-title a{
     color: #9aa696;
+}
+.tabs-title a:hover{
+    color: #50ca2c;
 }
 .tabs-title > a:focus, .tabs-title > a[aria-selected='true'] {
     background: #50ca2c;
