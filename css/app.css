@@ -1,13 +1,64 @@
 *{margin: 0px; padding: 0px}
-.container{
+/*.container{
     max-width: 750px;
-}
+}*/
 header{
-    background: #111; height: 40px;display: block;position: fixed; top: 0px; left: 0px; width: 100%;
+    background: #000;display: block;position: fixed; top: 0px; left: 0px; width: 100%;padding: 2px 0px;
 }
 #content{
-    padding-top: 40px;
+    padding-top: 54px;
 }
 footer{
-    background: #777; height: 60px;display: block;position: fixed; bottom: 0px; left: 0px; width: 100%
+    background: #222222;display: block;position: fixed; bottom: 0px; left: 0px; width: 100%
+}
+body{
+   background: url('../img/bg.jpg') repeat-x; background-position: bottom;
+}
+.tabs{
+    border: none;
+}
+.tabs-content{
+    background: url('../img/betica-headimg.jpg') no-repeat; background-attachment: fixed; background-size: cover;
+    border: none;
+}
+.tabs-title a{
+    color: #9aa696;
+}
+.tabs-title > a:focus, .tabs-title > a[aria-selected='true'] {
+    background: #50ca2c;
+    color: #fff;
+}
+
+.item{
+ background: #fff; border-radius: 5px; margin-bottom: 10px; padding-bottom: 10px;
+}
+.item .itemName,
+.item p{
+    text-align: center;
+}
+
+.item .itemName{
+    background: #50ca2c; color: #fff;border-radius: 5px 5px 0px 0px; padding: .5em 0em;
+}
+.item p{
+    color: #555;
+    padding: 1em;
+    margin-bottom: 0px;
+}
+.item button{
+    border-radius: 3px; text-align: center; display: block; margin: 0px auto; max-width: 280px; width: 90%; background: #1779ba; color: #fff; padding: 1em .4em;
+}
+.item .manufacturer{
+    font-weight: bold;
+}
+.item .date{
+    font-size: .8em;
+    font-style: italic;
+}
+.copy{
+    font-size: .6em; text-align: center; color: #888; padding: 15px 0px; margin: 0px;
+}
+.copy a{
+    color: #50ca2c;
+    text-decoration:  underline;
 }
