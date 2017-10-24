@@ -3,6 +3,10 @@
     <title>Betica Shop</title>
     <meta charset="utf-8">
     <meta name="author" content="YOUR NAME">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+    <link rel="stylesheet" href="css/foundation.css">
+    <link rel="stylesheet" href="css/app.css">
   </head>
   <body>
     <div id="content"></div>
@@ -68,7 +72,93 @@
        
       // enter your code here
       // render the items in the info using native Javascript or jQuery
-
+      const app = document.getElementById('content');
+      
+      
+      
+      
+      app.innerHTML+="<header>Header</header>";
+      app.innerHTML+="<footer>footer</footer>";
+      
+      app.innerHTML+="<div class='category tabs-content row' id='categoryTab' data-tabs-content='mainTab' ></div>";
+      app.innerHTML+="<ul class='tabs' data-tabs id='mainTab'></ul>";
+      
+      
+      let infoItems = info.items
+      let counter = 0;
+      function isActive(counter){
+        var status='';
+        if(counter==0){
+          status = 'is-active';
+        }
+        return status;
+      }
+      
+      function isActive2(counter){
+        var status='';
+        if(counter==0){
+          status = 'aria-selected="true"';
+        }
+        return status;
+      }
+      
+      for(var item in infoItems){
+          
+          const itemTemplate = "<div class='item row' id='"+item+"' >"+
+            "<div class='small-12 columns'>"+
+            "<h5>"+infoItems[item].title+"</h5>"+
+            "<h5>"+infoItems[item].manufacturer+"</h5>"+
+            "<p>"+infoItems[item].price+"</p>"+
+            "<p>"+infoItems[item].releaseDate+"</p>"+
+            "</div>"+
+            "</div>";
+          
+          
+          //const categoryTab = "<div class='category row' id="+infoItems[item].title+" >"+
+          //  "<h1>"+infoItems[item].title+"</h1>"+
+          //  "</div>";
+            
+          //const categoryTabContiner = "<div class='category tabs-content row' id='mainTab' data-tabs-content='categoryTab' >" +
+          //  "<h1>"+infoItems[item].title+"</h1>"+
+          //  "</div>";
+          
+          let tabMenuItems = "<li class='tabs-title' "+isActive(counter)+"><a href='#"+infoItems[item].title+"' "+isActive2(counter)+" >"+infoItems[item].title+"</a></li>";
+          let categoryTab = "<div class='tabs-panel' "+isActive(counter)+" id="+infoItems[item].title+" ></div>";
+          
+          //if(counter==0){
+          //    tabMenuItems = "<li class='tabs-title' is-active ><a href='#"+infoItems[item].title+"' aria-selected='true'>"+infoItems[item].title+"</a></li>";
+          //    categoryTab = "<div class='tabs-panel' is-active id="+infoItems[item].title+" ></div>";
+          //    
+          //  }else{
+          //    tabMenuItems = "<li class='tabs-title' ><a data-tabs-target="+infoItems[item].title+" href='#"+infoItems[item].title+"' >"+infoItems[item].title+"</a></li>";
+          //    categoryTab = "<div class='tabs-panel' id="+infoItems[item].title+" ></div>";
+          //  }
+          
+        
+          
+         
+          //Categoy
+          if(infoItems[item].parent == 'c000'){
+            document.getElementById('categoryTab').innerHTML+=categoryTab;
+            document.getElementById('mainTab').innerHTML+=tabMenuItems;
+          }
+          
+          if(infoItems[item].parent == 'c001'){
+            document.getElementById('Phones').innerHTML+=itemTemplate;
+          }
+          if(infoItems[item].parent == 'c002'){
+            document.getElementById('Laptops').innerHTML+=itemTemplate
+          }
+          if(infoItems[item].parent == 'c003'){
+            document.getElementById('Accessories').innerHTML+=itemTemplate
+          }
+          
+          counter++;
+      } 
     </script>
+    <script src="js/vendor/jquery.js"></script>
+    <script src="js/vendor/what-input.js"></script>
+    <script src="js/vendor/foundation.js"></script>
+    <script src="js/app.js"></script>
 </body>
 </html>
