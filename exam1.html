@@ -74,14 +74,13 @@
       // render the items in the info using native Javascript or jQuery
       const app = document.getElementById('content');
       
+        app.innerHTML+="<header>Header</header>";
+        app.innerHTML+="<footer>footer</footer>";
+        
+        app.innerHTML+="<div class='category tabs-content row' id='categoryTab' data-tabs-content='mainTab' ></div>";
+        app.innerHTML+="<ul class='tabs' data-tabs id='mainTab'></ul>";
+     
       
-      
-      
-      app.innerHTML+="<header>Header</header>";
-      app.innerHTML+="<footer>footer</footer>";
-      
-      app.innerHTML+="<div class='category tabs-content row' id='categoryTab' data-tabs-content='mainTab' ></div>";
-      app.innerHTML+="<ul class='tabs' data-tabs id='mainTab'></ul>";
       
       
       let infoItems = info.items
@@ -122,8 +121,8 @@
           //  "<h1>"+infoItems[item].title+"</h1>"+
           //  "</div>";
           
-          let tabMenuItems = "<li class='tabs-title' "+isActive(counter)+"><a href='#"+infoItems[item].title+"' "+isActive2(counter)+" >"+infoItems[item].title+"</a></li>";
-          let categoryTab = "<div class='tabs-panel' "+isActive(counter)+" id="+infoItems[item].title+" ></div>";
+          let tabMenuItems = "<li class='tabs-title "+isActive(counter)+"' ><a href='#"+infoItems[item].title+"' >"+infoItems[item].title+"</a></li>";
+          let categoryTab = "<div class='tabs-panel "+isActive(counter)+"' id="+infoItems[item].title+" ></div>";
           
           //if(counter==0){
           //    tabMenuItems = "<li class='tabs-title' is-active ><a href='#"+infoItems[item].title+"' aria-selected='true'>"+infoItems[item].title+"</a></li>";
