@@ -9,7 +9,7 @@ header{
     padding-top: 54px;
 }
 footer{
-    background: #222222;display: block;position: fixed; bottom: 0px; left: 0px; width: 100%
+    background: #222222;display: block; bottom: 0px; left: 0px; width: 100%
 }
 body{
    background: url('../img/bg.jpg') repeat-x; background-position: bottom;

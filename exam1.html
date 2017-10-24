@@ -77,7 +77,7 @@
         const app = document.getElementById('content');
       
         app.innerHTML+="<header><img src='img/betica.jpg' /></header>";
-        app.innerHTML+="<footer><p class='copy'>&copy; All Rights Reserved.<br/><a href=''>Terms of service</a> | <a href=''>Privacy Policy</a></p></footer>";
+       
         
         app.innerHTML+="<div class='expanded row'><ul class='tabs' data-tabs id='mainTab'></ul></div>";
         app.innerHTML+="<div class='category tabs-content expanded row' id='categoryTab' data-tabs-content='mainTab' ></div>";
@@ -108,10 +108,19 @@
             "</div>"+
             "</setion>";
         
-          let tabMenuItems = "<li class='tabs-title "+isActive(counter)+"' ><a href='#"+infoItems[item].title+"' >"+infoItems[item].title+"</a></li>";
-          let categoryTab = "<div class='tabs-panel "+isActive(counter)+"' id="+infoItems[item].title+" ></div>";
+          //WITH TAB
+          //let tabMenuItems = "<li class='tabs-title "+isActive(counter)+"' ><a href='#"+infoItems[item].title+"' >"+infoItems[item].title+"</a></li>";
+          //let categoryTab = "<div class='tabs-panel "+isActive(counter)+"' id="+infoItems[item].title+" ></div>";
+          
+          let tabMenuItems = "<li class='tabs-title' ><a href='#"+infoItems[item].title+"' >"+infoItems[item].title+"</a></li>";
+          let categoryTab = "<div class='tabs-panel' id="+infoItems[item].title+" ></div>";
 
           //Categoy
+          if(counter==0){
+            document.getElementById('categoryTab').innerHTML+="<div class='tabs-panel "+isActive(counter)+"' id='all' ></div>";;
+            document.getElementById('mainTab').innerHTML+="<li class='tabs-title "+isActive(counter)+"' ><a href='#all' >All Items</a></li>";;
+          }
+          
           if(infoItems[item].parent == 'c000'){
             document.getElementById('categoryTab').innerHTML+=categoryTab;
             document.getElementById('mainTab').innerHTML+=tabMenuItems;
@@ -129,12 +138,16 @@
           counter++;
       };
       
-        let phonesTab = document.getElementById('Phones').innerHTML;
+      let phonesTab = document.getElementById('Phones').innerHTML;
       let laptopsTab = document.getElementById('Laptops').innerHTML;
       let accessoriesTab = document.getElementById('Accessories').innerHTML;
       document.getElementById('Phones').innerHTML="<h1 class='tabName'>Phones</h1>"+phonesTab;
       document.getElementById('Laptops').innerHTML="<h1 class='tabName'>Laptops</h1>"+laptopsTab;
       document.getElementById('Accessories').innerHTML="<h1 class='tabName'>Accessories</h1>"+accessoriesTab;
+      
+      //display in All Tab
+      document.getElementById('all').innerHTML="<h1 class='tabName'>Phones</h1>"+phonesTab+"<h1 class='tabName'>Laptops</h1>"+laptopsTab+"<h1 class='tabName'>Accessories</h1>"+accessoriesTab
+      app.innerHTML+="<footer><p class='copy'>&copy; All Rights Reserved.<br/><a href=''>Terms of service</a> | <a href=''>Privacy Policy</a></p></footer>";
       }
       init(); 
       
