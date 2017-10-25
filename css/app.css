@@ -20,6 +20,9 @@ body{
 .tabName{
     color: #fff; text-align: center;
 }
+.navi{
+    display: block; background: #fff; width: 100%; height: 30px;
+}
 .tabs-content{
     background: url('../img/betica-headimg.jpg') no-repeat; background-attachment: fixed; background-size: cover;
     border: none;

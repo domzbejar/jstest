@@ -1,0 +1,159 @@
+<html>
+  <head>
+    <title>Betica Shop</title>
+    <meta charset="utf-8">
+    <meta name="author" content="YOUR NAME">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+    <link rel="stylesheet" href="foundation-icons/foundation-icons.css">
+    <link rel="stylesheet" href="css/foundation.css">
+    <link rel="stylesheet" href="css/app.css">
+  </head>
+  <body>
+    <div id="content"></div>
+    <script type="text/javascript">
+      var info = {
+        "items": {
+          "c001": {
+            "parent": "c000",
+            "title": "Phones"
+          },
+          "c002": {
+            "parent": "c000",
+            "title": "Laptops"
+          },
+          "c003": {
+            "parent": "c000",
+            "title": "Accessories"
+          },
+          "p001": {
+            "parent": "c001",
+            "manufacturer": "Apple",
+            "title": "iPhone 10",
+            "price": 499,
+            "releaseDate": "2018-04-23T18:25:43.511Z"
+          },
+          "p002": {
+            "parent": "c002",
+            "manufacturer": "Apple",
+            "title": "Macbook Pro 2017",
+            "price": 1999,
+            "releaseDate": "2017-04-23T18:25:43.511Z"
+          },
+          "p003": {
+            "parent": "c002",
+            "manufacturer": "Dell",
+            "title": "XPS 13",
+            "price": 1399,
+            "releaseDate": "2017-04-23T18:25:43.511Z"
+          },
+          "p004": {
+            "parent": "c001",
+            "manufacturer": "Samsung",
+            "title": "Samsung Galaxy S10",
+            "price": 399,
+            "releaseDate": "2017-04-23T18:25:43.511Z"
+          },
+          "p005": {
+            "parent": "c003",
+            "manufacturer": "Apple",
+            "title": "Apple Charger 12W",
+            "price": 99,
+            "releaseDate": "2016-12-23T18:25:43.511Z"
+          },
+          "p006": {
+            "parent": "c003",
+            "manufacturer": "Samsung",
+            "title": "Samsung Charger 12W",
+            "price": 89,
+            "releaseDate": "2017-04-23T18:25:43.511Z"
+          }
+        }
+      };
+       
+      // enter your code here
+      // render the items in the info using native Javascript or jQuery
+      function init(){
+        const app = document.getElementById('content');
+        const header = document.createElement('header');
+        const main = document.createElement('div');
+        const elem = document.createElement('div');
+        const footer = document.createElement('footer');
+        const navi = document.createElement('ul');
+        
+        const copy = '<p class="copy">&copy; All Rights Reserved.<br/><a href="">Terms of service</a> | <a href="">Privacy Policy</a></p>';
+        const logo = '<img src="img/betica.jpg" />';
+        
+        main.setAttribute('id','mainCont')
+        main.setAttribute('class','tabs-content')
+        navi.classList.add('navi');
+        
+        header.innerHTML=logo;
+        footer.innerHTML=copy;
+        
+        app.appendChild(header);
+        
+        app.appendChild(main);
+        app.appendChild(footer);
+        
+        app.insertBefore(navi,main);
+        
+        const infoItems = info.items; 
+        
+      for(var item in infoItems){
+        
+        const parent = infoItems[item].parent;
+        const mainCont = document.getElementById('mainCont');
+        const category = '<div class="category" id="'+infoItems[item].title+'"></div>';
+        
+        const catTitle = document.createElement('h1');
+        const title = document.createTextNode(infoItems[item].title);
+        catTitle.appendChild(title);
+        catTitle.setAttribute('class','tabName');
+        
+        
+            
+        const itemTemplate ="<setion class='expanded row' id='"+item+"' >"+
+            "<div class='large-5 small-12 large-centered small-centered columns'>"+
+            "<div class='item'>"+
+            "<h3 class='itemName'>"+infoItems[item].title+"</h3>"+
+            "<p>Manufactured by <span class='manufacturer'>"+infoItems[item].manufacturer+"</span>, to be released in <span class='date'>"+infoItems[item].releaseDate+"</span></p>"+
+            "<button>Add to Cart <i class='fi-shopping-cart medium'></i></button>"+
+            "</div>"+
+            "</div>"+
+            "</setion>";
+        
+        switch(parent){
+          case 'c001': //Phones items
+              document.getElementById('Phones').innerHTML+=itemTemplate;
+            break;
+          case 'c002': //Laptops items
+             document.getElementById('Laptops').innerHTML+=itemTemplate;
+            break;
+          case 'c003': //Accessories items
+             document.getElementById('Accessories').innerHTML+=itemTemplate;
+            break;
+          default:  //Categories parent c000
+            mainCont.appendChild( catTitle );
+            mainCont.innerHTML+=category;
+        }
+        
+      };
+      
+     
+      }
+      document.body.onload=init//init(); 
+      
+      
+      
+      
+      
+      
+      
+    </script>
+    <script src="js/vendor/jquery.js"></script>
+    <script src="js/vendor/what-input.js"></script>
+    <script src="js/vendor/foundation.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
